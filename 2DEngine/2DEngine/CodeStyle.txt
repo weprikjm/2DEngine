@@ -1,0 +1,39 @@
+CodeStyle from Programmer Ruben Idigora.
+
+
+VARIABLES
+
+camelCase
+
+	- int coolVar
+
+
+FUNCTIONS
+
+PascalCase
+	- int CoolFunction
+	 (except operators ofc)
+	
+
+
+
+
+BRACKETS {}
+	2 tabs to the right
+	1 additional space for each bracket up and down
+
+	type name()
+	{
+		
+			code
+			code
+		
+	}
+
+Operator ::
+
+	1 space for each side
+
+	type class :: name(){}
+
+	

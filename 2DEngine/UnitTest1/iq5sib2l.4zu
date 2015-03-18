@@ -1,0 +1,104 @@
+#include "stdafx.h"
+#include "CppUnitTest.h"
+#include "..\CustomLog\Point2D.h"
+#include "..\CustomLog\Log.h"
+#include "..\CustomLog\myString.h"
+#include "..\CustomLog\Point2D.cpp"
+#include "..\CustomLog\myString.cpp"
+#include <stdio.h>
+#define LOG(format, ...) LogPrint(__FILE__, __LINE__, format, __VA_ARGS__);
+
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+namespace UnitTest1
+{		
+	TEST_CLASS(UnitTest1)
+	{
+	public:
+		//======================================================================= MyString METHODS
+		TEST_METHOD(TestMethod1)
+		{
+			myString string("%s","Rubennnnnn");
+			
+			//string.Alloc(string); //---------------  METHOD ALLOC
+			Assert::AreEqual(string.size,10);
+		}
+		
+		TEST_METHOD(TestMethod2)
+		{
+			myString string;
+			string.Clear();		
+			Assert::AreEqual(string.size,1);//--------- METHOD CLEAR
+		
+		}
+		
+		TEST_METHOD(TestMethod3)
+		{
+			int i = 0;
+			myString string("%s","Hola");
+
+			i=string.Len(string.str); //---------- METHOD LEN
+			Assert::AreEqual(string.Len(string.str),4);	
+		}
+		
+		TEST_METHOD(TestMethod4)
+		{
+			myString string("%s%s", "Hi", "Yeah");//---------------  CONSTRUCTOR MULTIPLE STRINGS %S FOR EACH ARGUMENT.
+			Assert::AreEqual(string.Len(string.str),6);
+		}
+		
+		TEST_METHOD(TestMethod5)
+		{
+			myString string;		 //--------------------------------- EMPTY CONSTRUCTOR
+			Assert::AreEqual(string.Len(string.str),0);
+			
+		}
+		
+		TEST_METHOD(TestMethod6)
+		{
+			myString String("Ruben");		//----------------------- CONSTRUCTOR WITH ONE ARGUMENT
+			Assert::AreEqual(String.size,5);
+		}
+		
+		TEST_METHOD(TestMethod7)
+		{
+			myString m("Ruben");		//---------------------- COPY CONSTRUCTOR WITH A MYSTRING AS A PARAMETER
+			myString& p = m;
+			
+			myString string1(p);
+			
+			Assert::AreEqual(string1.size,5);			
+		}
+		/*
+		TEST_METHOD(TestMethod8)
+		{
+			
+		}
+		TEST_METHOD(TestMethod9)
+		{
+			myString m("%s", "Ruben");
+			myString p("%s", "Rocks");
+
+			myString& refm = m;
+			myString& refp = p;
+			myString x;
+			myString& z = x;
+			printf("%s", m.str);
+			printf("%s", p.str);
+
+			refp += refm;
+
+			printf("%s", refp.str);
+		}
+		TEST_METHOD(TestMethod10)
+		{
+			
+		}	
+		TEST_METHOD(TestMethod11)
+		{
+			
+		}
+
+		*/
+	};
+}
